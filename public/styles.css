@@ -1,0 +1,136 @@
+:root {
+  color-scheme: light;
+  --bg: #f3efe6;
+  --panel: #fffdf8;
+  --border: #2e2a24;
+  --grid: #d8d0c3;
+  --snake: #2f6f3e;
+  --snake-head: #1d4d29;
+  --food: #d1563b;
+  --text: #1c1712;
+  --muted: #655c4f;
+  --button: #ede3d3;
+  --button-active: #dcc9a5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.panel {
+  width: min(100%, 560px);
+  background: var(--panel);
+  border: 2px solid var(--border);
+  padding: 20px;
+  box-shadow: 8px 8px 0 #c9baa0;
+}
+
+.status-row,
+.actions,
+.touch-row {
+  display: flex;
+  gap: 12px;
+}
+
+.status-row {
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.label {
+  margin: 0 0 4px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}
+
+.value {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.actions {
+  margin-bottom: 16px;
+}
+
+button {
+  border: 2px solid var(--border);
+  background: var(--button);
+  color: var(--text);
+  padding: 10px 14px;
+  font: inherit;
+  cursor: pointer;
+}
+
+button:active {
+  background: var(--button-active);
+}
+
+.board-shell {
+  border: 2px solid var(--border);
+  background: #faf6ee;
+  padding: 10px;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(16, minmax(0, 1fr));
+  width: min(100%, 480px);
+  aspect-ratio: 1;
+  border: 1px solid var(--grid);
+}
+
+.cell {
+  border: 1px solid var(--grid);
+  background: #f7f2e8;
+}
+
+.cell.snake {
+  background: var(--snake);
+}
+
+.cell.head {
+  background: var(--snake-head);
+}
+
+.cell.food {
+  background: var(--food);
+}
+
+.help {
+  margin: 12px 0 0;
+  color: var(--muted);
+}
+
+.touch-controls {
+  margin-top: 16px;
+  display: grid;
+  gap: 8px;
+  justify-content: center;
+}
+
+.touch-row {
+  justify-content: center;
+}
+
+@media (min-width: 700px) {
+  .touch-controls {
+    display: none;
+  }
+}
